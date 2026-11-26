@@ -827,7 +827,7 @@ $("#clear").onclick = () => { S.teams = []; S.cleared = true; update(); };
 $("#export").onclick = async () => { const b = $("#export"); b.disabled = true; b.textContent = "Preparing...";
   try { const wb = buildWorkbook(ExcelJS, R, S, D, LOGO); const buf = await addCheckboxes(JSZip, await wb.xlsx.writeBuffer(), wb.__checkbox);
     const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([buf], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" }));
-    a.download = `Nakisa_Access_Design_${new Date().toISOString().slice(0, 10)}.xlsx`; document.body.appendChild(a); a.click(); a.remove(); b.textContent = "Downloaded";
+    a.download = `Nakisa_Access_Design_2026_R2_${new Date().toISOString().slice(0, 10)}.xlsx`; document.body.appendChild(a); a.click(); a.remove(); b.textContent = "Downloaded";
   } catch (e) { b.textContent = "Download failed"; console.error(e); } setTimeout(() => { b.textContent = "Download Excel"; b.disabled = false; }, 2000); };
 update();
 </script>
